@@ -1,25 +1,39 @@
 import React from 'react';
-import logo from '../../assets/img/logo.svg';
-import './Newtab.css';
+import { tiles } from './tiles';
+import {
+  App,
+  Header,
+  TopBar,
+  User,
+  Container,
+  Tile,
+  Logo,
+  Env,
+} from './styles';
 
 const Newtab = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/pages/Newtab/Newtab.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <App>
+      <Header>
+        <TopBar>
+          <Logo
+            src="https://www.netent.com/en/wp-content/themes/netent_corp/assets/img/logotype/netent-logotype.svg"
+            alt="logo"
+          />
+          <User />
+        </TopBar>
+      </Header>
+      <Container>
+        {tiles.map((tile, i) => {
+          return (
+            <Tile key={i}>
+              <Env env={tile.env}>{tile.env}</Env>
+              <p>{tile.title}</p>
+            </Tile>
+          );
+        })}
+      </Container>
+    </App>
   );
 };
 

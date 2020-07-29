@@ -19,6 +19,7 @@ const Popup = () => {
         >
           Learn React
         </a>
+        <Greetings />
       </header>
     </div>
   );
